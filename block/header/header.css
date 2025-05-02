@@ -1,0 +1,7 @@
+@import "__title/header__title.css";
+
+.header {
+    text-align: center;
+    vertical-align: middle;
+    margin-bottom: 40px;
+}

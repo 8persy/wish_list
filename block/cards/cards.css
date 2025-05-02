@@ -1,0 +1,26 @@
+@import "__add-button/cards__add-button.css";
+@import "__card/cards__card.css";
+@import "__img/cards__img.css";
+@import "__bin-box/cards__bin-box.css";
+@import "__bin-img/cards__bin-img.css";
+@import "__title/cards__title.css";
+@import "__price/cards__price.css";
+@import "__price/cards__price-count.css";
+@import "__price/cards__price-currency.css";
+@import "__tags/cards__tags.css";
+
+
+.cards {
+    display: grid;
+    grid-template-areas: 'add . .';
+    justify-content: space-evenly;
+    row-gap: 40px;
+}
+
+@media screen and (max-device-width: 900px) {
+    .cards {
+        display: flex;
+        flex-wrap: wrap;
+        row-gap: 20px;
+    }
+}

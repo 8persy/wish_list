@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>myWish — Вишлист</title>
+    <link rel="stylesheet" href="../block/index.css">
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="page">
+
+<!-- Логотип -->
+<header class="header">
+    <h1 class="font__size_xl font__family_pacifico header__title font__color_blue">myWish</h1>
+</header>
+
+<main class="main">
+
+    <!-- Левая панель: Фильтры -->
+    <aside class="sidebar">
+        <p class="sidebar__count font__size_l">Найдено 7 желаний</p>
+
+        <hr class="sidebar__line">
+
+        <div class="sidebar__filter">
+            <h3 class="sidebar__title font__family_inter font__size_l font__color_dark-blue">Праздник</h3>
+            <ul class="sidebar__list">
+                <li class="sidebar__list-item font__size_m"><input type="checkbox" id="bday"> <label for="bday">День
+                    рождения</label></li>
+                <li class="sidebar__list-item font__size_m"><input type="checkbox" id="ny"> <label for="ny">Новый
+                    год</label></li>
+                <li class="sidebar__list-item font__size_m"><input type="checkbox" id="march8"> <label for="march8">8
+                    марта</label></li>
+            </ul>
+        </div>
+
+        <hr class="sidebar__line">
+
+        <div class="mb-6 sidebar__filter">
+            <h3 class="sidebar__title font__family_inter font__size_l font__color_dark-blue">Степень желания</h3>
+            <ul class="sidebar__list">
+                <li class="sidebar__list-item font__size_m"><input type="checkbox" id="very"> <label for="very">Очень
+                    сильно хочу</label></li>
+                <li class="sidebar__list-item font__size_m"><input type="checkbox" id="strong"> <label for="strong">Сильно
+                    хочу</label></li>
+                <li class="sidebar__list-item font__size_m"><input type="checkbox" id="want"> <label
+                        for="want">Хочу</label></li>
+                <li class="sidebar__list-item font__size_m"><input type="checkbox" id="maybe"> <label for="maybe">Как
+                    вариант</label></li>
+            </ul>
+        </div>
+
+        <hr class="sidebar__line">
+
+        <div class="sidebar__filter">
+            <h3 class="sidebar__title font__family_inter font__size_l font__color_dark-blue">Цена, руб.</h3>
+            <input type="range" min="0" max="9999" class="sidebar__range">
+            <div class="sidebar__number-box">
+                <input type="number" value="0" class="sidebar__number">
+                <input type="number" value="9999" class="sidebar__number">
+            </div>
+        </div>
+    </aside>
+
+
+    <!-- Контент -->
+    <section class="content">
+
+        <!-- Поиск -->
+        <div class="content__search">
+            <div class="content__search-box">
+                <input type="text" class="content__search-line">
+                <span class="content__loupe_box">
+                    <img src="../images/loupe.svg" alt="loupe" class="content__loupe_img">
+                </span>
+            </div>
+            <button class="content__search-button font__size_l font__family_inter">Найти</button>
+        </div>
+
+        <!-- Сетка карточек -->
+        <div class="cards">
+
+            <!-- Карточка добавления -->
+            <div class="cards__add-button">
+                <span class="text-4xl text-blue-300">+</span>
+            </div>
+
+            <!-- Шаблон карточки для демонстрации  -->
+            <!-- УБРАТЬ ПОЗЖЕ ВСЕ ШАБЛОНЫ  -->
+            <div class="cards__card">
+                <img src="../images/book.svg" alt="img" class="cards__img">
+                <span class="cards__bin-box absolute top-1 right-1 bg-white border rounded-full w-5 h-5 flex items-center justify-center text-sm">
+                    <img src="../images/bin.svg" alt="bin" class="cards__bin-img">
+                </span>
+                <div class="cards__title font__size_l">Название</div>
+                <div class="cards__price font__size_l">
+                    <p class="cards__price-count">Цена</p>
+                    <p class="cards__price-currency"> — РУБ.</p>
+                </div>
+                <div class="cards__tags font__size_s">#теги #теги #теги</div>
+            </div>
+
+            <div class="cards__card">
+                <img src="../images/book.svg" alt="img" class="cards__img">
+                <span class="cards__bin-box absolute top-1 right-1 bg-white border rounded-full w-5 h-5 flex items-center justify-center text-sm">
+                    <img src="../images/bin.svg" alt="bin" class="cards__bin-img">
+                </span>
+                <div class="cards__title font__size_l">Название</div>
+                <div class="cards__price font__size_l">
+                    <p class="cards__price-count">Цена</p>
+                    <p class="cards__price-currency"> — РУБ.</p>
+                </div>
+                <div class="cards__tags font__size_s">#теги #теги #теги</div>
+            </div>
+
+            <div class="cards__card">
+                <img src="../images/book.svg" alt="img" class="cards__img">
+                <span class="cards__bin-box absolute top-1 right-1 bg-white border rounded-full w-5 h-5 flex items-center justify-center text-sm">
+                    <img src="../images/bin.svg" alt="bin" class="cards__bin-img">
+                </span>
+                <div class="cards__title font__size_l">Название</div>
+                <div class="cards__price font__size_l">
+                    <p class="cards__price-count">Цена</p>
+                    <p class="cards__price-currency"> — РУБ.</p>
+                </div>
+                <div class="cards__tags font__size_s">#теги #теги #теги</div>
+            </div>
+        </div>
+    </section>
+
+</main>
+<template id="card-template">
+    <div class="cards__card">
+        <img src="" alt="img" class="cards__img">
+        <span class="cards__bin-box absolute top-1 right-1 bg-white border rounded-full w-5 h-5 flex items-center justify-center text-sm">
+                    <img src="../images/bin.svg" alt="bin" class="cards__bin-img">
+                </span>
+        <div class="cards__title font__size_l"></div>
+        <div class="cards__price font__size_l">
+            <p class="cards__price-count"></p>
+            <p class="cards__price-currency"> — РУБ.</p>
+        </div>
+        <div class="cards__tags font__size_s"></div>
+    </div>
+</template>
+</body>
+</html>

@@ -1,0 +1,49 @@
+@import "fonts/fonts.css";
+@import "header/header.css";
+@import "sidebar/sidebar.css";
+@import "content/content.css";
+@import "cards/cards.css";
+
+@font-face {
+    font-family: Inter;
+    src: url("../font/inter/static/inter_18pt-Regular.ttf");
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: Inter;
+    src: url("../font/inter/static/inter_18pt-Bold.ttf");
+    font-weight: bold;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: Pacifico;
+    src: url("../font/Pacifico/Pacifico-Regular.ttf");
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: RobotoMono;
+    src: url("../font/Roboto_Mono/static/RobotoMono-Regular.ttf");
+    font-weight: normal;
+    font-style: normal;
+}
+
+.page {
+    background-color: #EEF5FF;
+}
+
+.main {
+    width: 80%;
+    max-width: 1040px;
+    padding: 1.5rem;
+    background-color: white;
+    border-radius: 30px;
+    display: flex;
+    margin-left: auto;
+    margin-right: auto;
+    box-shadow: 5px 5px 15px rgba(128, 128, 128, 0.21);
+}

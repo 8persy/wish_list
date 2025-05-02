@@ -1,0 +1,6 @@
+.cards__price {
+    display: flex;
+    gap: 5px;
+    border-bottom: 1px solid black;
+    justify-content: center;
+}

@@ -1,0 +1,15 @@
+.cards__add-button {
+    width: 157px;
+    border-style: dashed;
+    border-width: 2px;
+    border-radius: 23px;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    display: flex;
+    grid-area: add;
+}
+
+.cards__add-button:hover {
+    background-color: rgba(0, 0, 0, 0.02);
+}
