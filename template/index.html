@@ -84,179 +84,145 @@
                 <span>+</span>
             </div>
 
-            <!-- Шаблон карточки для демонстрации  -->
-            <!-- УБРАТЬ ПОЗЖЕ ВСЕ ШАБЛОНЫ  -->
-            <div class="cards__card">
-                <img src="../images/book.svg" alt="img" class="cards__img">
-                <span class="cards__bin-box">
-                    <img src="../images/bin.svg" alt="bin" class="cards__bin-img">
-                </span>
-                <div class="cards__title font__size_l">Название</div>
-                <div class="cards__price font__size_l">
-                    <p class="cards__price-count">Цена</p>
-                    <p class="cards__price-currency"> — РУБ.</p>
-                </div>
-                <div class="cards__tags font__size_s">#теги #теги #теги</div>
-            </div>
-
-            <div class="cards__card">
-                <img src="../images/book.svg" alt="img" class="cards__img">
-                <span class="cards__bin-box absolute top-1 right-1 bg-white border rounded-full w-5 h-5 flex items-center justify-center text-sm">
-                    <img src="../images/bin.svg" alt="bin" class="cards__bin-img">
-                </span>
-                <div class="cards__title font__size_l">Название</div>
-                <div class="cards__price font__size_l">
-                    <p class="cards__price-count">Цена</p>
-                    <p class="cards__price-currency"> — РУБ.</p>
-                </div>
-                <div class="cards__tags font__size_s">#теги #теги #теги</div>
-            </div>
-
-            <div class="cards__card">
-                <img src="../images/book.svg" alt="img" class="cards__img">
-                <span class="cards__bin-box absolute top-1 right-1 bg-white border rounded-full w-5 h-5 flex items-center justify-center text-sm">
-                    <img src="../images/bin.svg" alt="bin" class="cards__bin-img">
-                </span>
-                <div class="cards__title font__size_l">Название</div>
-                <div class="cards__price font__size_l">
-                    <p class="cards__price-count">Цена</p>
-                    <p class="cards__price-currency"> — РУБ.</p>
-                </div>
-                <div class="cards__tags font__size_s">#теги #теги #теги</div>
-            </div>
-        </div>
-
-
-        <div class="overlay hidden">
-            <div class="show-popup">
-                <div class="show-popup__actions">
-                    <button class="show-popup__icon-btn">✖</button>
-                    <button class="show-popup__icon-btn">✏️</button>
-                    <button class="show-popup__icon-btn">🗑️</button>
-                </div>
-                <div class="show-popup__popup-content">
-                    <!-- Картинка -->
-                    <div class="show-popup__popup-image"></div>
-
-                    <!-- Название -->
-                    <h2 class="show-popup__popup-title">Название</h2>
-
-                    <!-- Праздник и Степень желания -->
-                    <div class="show-popup__popup-row">
-                        <span class="show-popup__label">Праздник:</span>
-                        <button class="show-popup__pill">8 марта</button>
+            <div class="overlay hidden">
+                <div class="show-popup">
+                    <div class="show-popup__actions">
+                        <button class="show-popup__icon-btn">✖</button>
+                        <button class="show-popup__icon-btn">✏️</button>
+                        <button class="show-popup__icon-btn">🗑️</button>
                     </div>
-                    <div class="show-popup__popup-row">
-                        <span class="show-popup__label">Степень желания:</span>
-                        <button class="show-popup__pill pill">Хочу</button>
-                    </div>
-
-                    <!-- Описание -->
-                    <p class="show-popup__description">
-                        бла бла бла ла ла ла ла ла ла ла ла ла ла ла ла ла ла ла ла ла ла
-                    </p>
-
-                    <hr class="show-popup__line">
-
-                    <!-- Теги и Цена -->
-                    <div class="show-popup__footer">
-                        <select class="show-popup__tags">
-                            <option>Тэги</option>
-                            <option>#техника</option>
-                            <option>#игра</option>
-                            <option>#хобби</option>
-                        </select>
-                        <div class="show-popup__price popup-price">Цена: ___ руб.</div>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-
-        <div class="overlay hidden">
-
-            <div class="edit-popup" id="editPopup">
-                <div class="edit-popup__container">
-                    <form class="edit-popup__modal" id="editForm">
-                        <!-- Загрузка изображения -->
-                        <div class="edit-popup__image-upload">
-                            <label for="imageUpload">
-                                <img id="imagePreview" src="https://via.placeholder.com/150"
-                                     alt="Загрузить изображение">
-                            </label>
-                            <input type="file" id="imageUpload" accept="image/*" style="display: none;">
-                        </div>
+                    <div class="show-popup__popup-content">
+                        <!-- Картинка -->
+                        <div class="show-popup__popup-image"></div>
 
                         <!-- Название -->
-                        <input type="text" id="wishTitle" class="edit-popup__title-input" placeholder="Название">
+                        <h2 class="show-popup__popup-title"></h2>
 
-                        <!-- Праздник -->
-                        <div class="edit-popup__form-group">
-                            <label for="holiday">Праздник:</label>
-                            <div class="edit-popup__select-container select-container">
-                                <select id="holiday">
-                                    <option>День рождения</option>
-                                    <option>Новый год</option>
-                                    <option selected>8 марта</option>
-                                </select>
-                            </div>
+                        <!-- Праздник и Степень желания -->
+                        <div class="show-popup__popup-row">
+                            <span class="show-popup__label">Праздник:</span>
+                            <button class="show-popup__pill"></button>
                         </div>
-
-                        <!-- Степень желания -->
-                        <div class="edit-popup__form-group">
-                            <label for="wishlevel">Степень желания:</label>
-                            <div class="edit-popup__select-container">
-                                <select id="wishlevel">
-                                    <option>Очень сильно хочу</option>
-                                    <option>Сильно хочу</option>
-                                    <option selected>Хочу</option>
-                                    <option>Как вариант</option>
-                                </select>
-                            </div>
+                        <div class="show-popup__popup-row">
+                            <span class="show-popup__label">Степень желания:</span>
+                            <button class="show-popup__pill pill"></button>
                         </div>
 
                         <!-- Описание -->
-                        <div class="edit-popup__form-group">
-                            <label for="description">Описание:</label>
-                            <textarea class="edit-popup__description" id="description"
-                                      placeholder="Описание..."></textarea>
+                        <p class="show-popup__description">
+
+                        </p>
+
+                        <p class="show-popup__link">
+
+                        </p>
+
+                        <!-- Теги и Цена -->
+                        <div class="show-popup__footer">
+                            <select class="show-popup__tags">
+                                <option>Тэги</option>
+
+                                <!-- make tags like that
+                                <option>#техника</option>
+                                <option>#игра</option>
+                                <option>#хобби</option> -->
+
+                            </select>
+                            <div class="cards__price">
+                                <p class="cards__price-count"></p>
+                                <p class="cards__price-currency"> — РУБ.</p>
+                            </div>
                         </div>
+                    </div>
+                </div>
+            </div>
 
-                        <!-- Ссылка на товар -->
-                        <input type="url" id="wishLink" placeholder="Ссылка на товар" class="edit-popup__link-input">
 
+            <div class="overlay hidden">
 
-                        <!-- Теги и цена -->
-                        <div class="edit-popup__form-row">
-                            <div class="edit-popup__tags-container tags-container">
-                                <button type="button" id="tagsBtn">
-                                    Теги <span class="arrow">▸</span>
-                                </button>
-                                <div id="tagsDropdown" class="tags-dropdown-content">
-                                    <label><input type="checkbox" value="tag1"> Подарок</label>
-                                    <label><input type="checkbox" value="tag2"> Семья</label>
-                                    <label><input type="checkbox" value="tag3"> Хобби</label>
+                <div class="edit-popup" id="editPopup">
+                    <div class="edit-popup__container">
+                        <form class="edit-popup__modal" id="editForm">
+                            <!-- Загрузка изображения -->
+                            <div class="edit-popup__image-upload">
+                                <label for="imageUpload">
+                                    <img id="imagePreview" src="https://via.placeholder.com/150"
+                                         alt="Загрузить изображение">
+                                </label>
+                                <input type="file" id="imageUpload" accept="image/*" style="display: none;">
+                            </div>
+
+                            <!-- Название -->
+                            <input type="text" id="wishTitle" class="edit-popup__title-input" placeholder="Название">
+
+                            <!-- Праздник -->
+                            <div class="edit-popup__form-group">
+                                <label for="holiday">Праздник:</label>
+                                <div class="edit-popup__select-container select-container">
+                                    <select id="holiday">
+                                        <option>День рождения</option>
+                                        <option>Новый год</option>
+                                        <option selected>8 марта</option>
+                                    </select>
                                 </div>
                             </div>
-                            <div class="edit-popup__price-group price-group">
-                                <label for="price">Цена:</label>
-                                <input type="number" id="price" placeholder="0" min="0">
-                                <span>руб.</span>
-                            </div>
-                        </div>
-                    </form>
 
-                    <!-- Кнопки справа -->
-                    <div class="edit-popup__side-buttons">
-                        <button type="button" class="icon-btn close-btn" title="Закрыть" onclick="closePopup()">✖
-                        </button>
-                        <button type="submit" form="editForm" class="icon-btn save-btn" title="Сохранить">💾</button>
-                        <button type="button" class="icon-btn delete-btn" title="Удалить">🗑️</button>
+                            <!-- Степень желания -->
+                            <div class="edit-popup__form-group">
+                                <label for="wishlevel">Степень желания:</label>
+                                <div class="edit-popup__select-container">
+                                    <select id="wishlevel">
+                                        <option>Очень сильно хочу</option>
+                                        <option>Сильно хочу</option>
+                                        <option selected>Хочу</option>
+                                        <option>Как вариант</option>
+                                    </select>
+                                </div>
+                            </div>
+
+                            <!-- Описание -->
+                            <div class="edit-popup__form-group">
+                                <label for="description">Описание:</label>
+                                <textarea class="edit-popup__description" id="description"
+                                          placeholder="Описание..."></textarea>
+                            </div>
+
+                            <!-- Ссылка на товар -->
+                            <input type="url" id="wishLink" placeholder="Ссылка на товар"
+                                   class="edit-popup__link-input">
+
+
+                            <!-- Теги и цена -->
+                            <div class="edit-popup__form-row">
+                                <div class="edit-popup__tags-container tags-container">
+                                    <button type="button" id="tagsBtn">
+                                        Теги <span class="arrow">▸</span>
+                                    </button>
+                                    <div id="tagsDropdown" class="tags-dropdown-content">
+                                        <label><input type="checkbox" value="tag1"> Подарок</label>
+                                        <label><input type="checkbox" value="tag2"> Семья</label>
+                                        <label><input type="checkbox" value="tag3"> Хобби</label>
+                                    </div>
+                                </div>
+                                <div class="edit-popup__price-group price-group">
+                                    <label for="price">Цена:</label>
+                                    <input type="number" id="price" placeholder="0" min="0">
+                                    <span>руб.</span>
+                                </div>
+                            </div>
+                        </form>
+
+                        <!-- Кнопки справа -->
+                        <div class="edit-popup__side-buttons">
+                            <button type="button" class="icon-btn close-btn" title="Закрыть" onclick="closePopup()">✖
+                            </button>
+                            <button type="submit" form="editForm" class="icon-btn save-btn" title="Сохранить">💾</button>
+                            <button type="button" class="icon-btn delete-btn" title="Удалить">🗑️</button>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
-
 
     </section>
 
@@ -264,7 +230,7 @@
 <template id="card-template">
     <div class="cards__card">
         <img src="" alt="img" class="cards__img">
-        <span class="cards__bin-box absolute top-1 right-1 bg-white border rounded-full w-5 h-5 flex items-center justify-center text-sm">
+        <span class="cards__bin-box">
                     <img src="../images/bin.svg" alt="bin" class="cards__bin-img">
                 </span>
         <div class="cards__title font__size_l"></div>
