@@ -54,3 +54,15 @@
     margin-right: auto;
     box-shadow: 5px 5px 15px rgba(128, 128, 128, 0.21);
 }
+
+@media screen and (max-device-width: 450px) {
+    .main {
+        padding: 0.8rem;
+    }
+}
+
+@media screen and (max-device-width: 380px) {
+    .main {
+        padding: 0.5rem;
+    }
+}

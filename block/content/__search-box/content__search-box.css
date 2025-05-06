@@ -1,4 +1,5 @@
 .content__search-box {
+    min-width: 60%;
     flex: 1 1 0;
     position: relative;
 }
