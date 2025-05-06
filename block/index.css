@@ -37,6 +37,8 @@
 
 .page {
     background-color: #EEF5FF;
+    font-family: Inter, serif;
+    line-height: 1.5;
 }
 
 .hidden {
@@ -66,3 +68,62 @@
         padding: 0.5rem;
     }
 }
+
+*, ::after, ::before {
+    box-sizing: border-box;
+    border-width: 0;
+    border-style: solid;
+    border-color: #e5e7eb;
+}
+
+body {
+    margin: 0;
+}
+
+button, input, optgroup, select, textarea {
+    font-family: inherit;
+    font-feature-settings: inherit;
+    font-variation-settings: inherit;
+    font-size: 100%;
+    font-weight: inherit;
+    line-height: inherit;
+    letter-spacing: inherit;
+    color: inherit;
+    margin: 0;
+    padding: 0
+}
+
+h1, h2, h3, h4, h5, h6, hr, p{
+    margin: 0
+}
+
+textarea {
+    resize: vertical
+}
+
+input::placeholder, textarea::placeholder {
+    opacity: 1;
+    color: #9ca3af
+}
+
+[role=button], button {
+    cursor: pointer
+}
+
+:disabled {
+    cursor: default
+}
+
+img{
+    display: block;
+    vertical-align: middle
+}
+
+.hidden {
+    display: none
+}
+
+
+
+
+

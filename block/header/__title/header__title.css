@@ -1,3 +1,5 @@
 .header__title {
     display: inline-block;
+    font-weight: inherit;
+    margin: 0;
 }

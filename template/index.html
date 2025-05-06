@@ -5,7 +5,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
     <title>myWish — Вишлист</title>
     <link rel="stylesheet" href="../block/index.css">
-    <script src="https://cdn.tailwindcss.com"></script>
 </head>
 <body class="page">
 
@@ -36,7 +35,7 @@
 
         <hr class="sidebar__line">
 
-        <div class="mb-6 sidebar__filter">
+        <div class="sidebar__filter">
             <h3 class="sidebar__title font__family_inter font__size_l font__color_dark-blue">Степень желания</h3>
             <ul class="sidebar__list">
                 <li class="sidebar__list-item font__size_m"><input type="checkbox" id="very"> <label for="very">Очень
@@ -82,14 +81,14 @@
 
             <!-- Карточка добавления -->
             <div class="cards__add-button">
-                <span class="text-4xl text-blue-300">+</span>
+                <span>+</span>
             </div>
 
             <!-- Шаблон карточки для демонстрации  -->
             <!-- УБРАТЬ ПОЗЖЕ ВСЕ ШАБЛОНЫ  -->
             <div class="cards__card">
                 <img src="../images/book.svg" alt="img" class="cards__img">
-                <span class="cards__bin-box absolute top-1 right-1 bg-white border rounded-full w-5 h-5 flex items-center justify-center text-sm">
+                <span class="cards__bin-box">
                     <img src="../images/bin.svg" alt="bin" class="cards__bin-img">
                 </span>
                 <div class="cards__title font__size_l">Название</div>
@@ -153,7 +152,7 @@
                     </div>
 
                     <!-- Описание -->
-                    <p class="show-popup__description popup-description">
+                    <p class="show-popup__description">
                         бла бла бла ла ла ла ла ла ла ла ла ла ла ла ла ла ла ла ла ла ла
                     </p>
 
@@ -278,5 +277,6 @@
 </template>
 
 <script src="../js/index.js"></script>
+
 </body>
 </html>
