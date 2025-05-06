@@ -1,0 +1,10 @@
+.edit-popup__container {
+    display: flex;
+    gap: 16px;
+    /*background-color: white;*/
+    border-radius: 12px;
+    padding: 20px;
+    /*box-shadow: 0 10px 25px rgba(0,0,0,0.2);*/
+    max-width: 800px;
+    width: 95%;
+}

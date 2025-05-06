@@ -1,0 +1,36 @@
+.edit-popup__tags-container {
+    position: relative;
+}
+
+#tagsBtn {
+    padding: 5px 10px;
+    border: none;
+    background-color: #5070A0;
+    color: #fff;
+    border-radius: 12px;
+    cursor: pointer;
+    font-size: 14px;
+}
+#tagsBtn .arrow {
+    margin-left: 5px;
+}
+
+
+.tags-dropdown-content {
+    width: 430px;
+    gap: 10px;
+    display: none; /* скрыт по умолчанию */
+    position: absolute;
+    top: 30px;
+    left: 0;
+    background-color: #fff;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    padding: 10px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+    z-index: 1;
+}
+.tags-dropdown-content label {
+    display: block;
+    margin-bottom: 5px;
+}

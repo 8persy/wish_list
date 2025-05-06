@@ -1,0 +1,23 @@
+@import "__container/edit-popup__container.css";
+@import "__modal/edit-popup__modal.css";
+@import "__image-upload/edit-popup__image-upload.css";
+@import "__title-input/edit-popup__title-input.css";
+@import "__form-group/edit-popup__form-group.css";
+@import "__select-container/edit-popup__select-container.css";
+@import "__description/edit-popup__description.css";
+@import "__link-input/edit-popup__link-input.css";
+@import "__form-row/edit-popup__form-row.css";
+@import "__tags-container/edit-popup__tags-container.css";
+@import "__price-group/edit-popup__price-group.css";
+@import "__side-buttons/edit-popup__side-buttons.css";
+
+.edit-popup {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 1000;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+}

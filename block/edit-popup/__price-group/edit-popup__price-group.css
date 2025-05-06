@@ -1,0 +1,18 @@
+.edit-popup__price-group {
+
+}
+
+.edit-popup__price-group label {
+    font-weight: bold;
+}
+.edit-popup__price-group input[type="number"] {
+    width: 70px;
+    padding: 5px;
+    border: none;
+    border-bottom: 2px solid #000;
+    font-size: 14px;
+    text-align: right;
+}
+.edit-popup__price-group span {
+    margin-left: 5px;
+}

@@ -1,0 +1,9 @@
+.edit-popup__form-group {
+    margin-bottom: 15px;
+}
+
+.edit-popup__form-group label {
+    display: inline-block;
+    width: 120px;
+    font-weight: bold;
+}

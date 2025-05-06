@@ -1,0 +1,26 @@
+.edit-popup__select-container {
+    display: inline-block;
+    position: relative;
+}
+
+.edit-popup__select-container select {
+    padding: 5px 25px 5px 10px;
+    border: none;
+    border-radius: 12px;
+    background-color: #A5CFFD;
+    color: #000;
+    font-size: 14px;
+    -webkit-appearance: none; /* отключаем стандартное оформление для стрелки */
+    -moz-appearance: none;
+    appearance: none;
+}
+
+.edit-popup__select-container::after {
+    content: "▾"; /* треугольник-стрелка вниз */
+    position: absolute;
+    right: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+    pointer-events: none;
+    color: #000;
+}
