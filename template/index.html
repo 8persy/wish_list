@@ -127,54 +127,54 @@
             </div>
         </div>
 
-        <div class="popup hidden">
-            <div class="popup-actions">
-                <button class="icon-btn">✖</button>
-                <button class="icon-btn">✏️</button>
-                <button class="icon-btn">🗑️</button>
-            </div>
-            <div class="popup-content">
-                <!-- Кнопки справа -->
 
-
-                <!-- Картинка -->
-                <div class="popup-image"></div>
-
-                <!-- Название -->
-                <h2 class="popup-title">Название</h2>
-
-                <!-- Праздник и Степень желания -->
-                <div class="popup-row">
-                    <span class="label">Праздник:</span>
-                    <button class="pill">8 марта</button>
+        <div class="overlay hidden">
+            <div class="show-popup">
+                <div class="show-popup__actions">
+                    <button class="show-popup__icon-btn">✖</button>
+                    <button class="show-popup__icon-btn">✏️</button>
+                    <button class="show-popup__icon-btn">🗑️</button>
                 </div>
-                <div class="popup-row">
-                    <span class="label">Степень желания:</span>
-                    <button class="pill">Хочу</button>
-                </div>
+                <div class="show-popup__popup-content">
+                    <!-- Картинка -->
+                    <div class="show-popup__popup-image"></div>
 
-                <!-- Описание -->
-                <p class="popup-description">
-                    бла бла бла ла ла ла ла ла ла ла ла ла ла ла ла ла ла ла ла ла ла
-                </p>
+                    <!-- Название -->
+                    <h2 class="show-popup__popup-title">Название</h2>
 
-                <hr class="popup__line">
+                    <!-- Праздник и Степень желания -->
+                    <div class="show-popup__popup-row">
+                        <span class="show-popup__label">Праздник:</span>
+                        <button class="show-popup__pill">8 марта</button>
+                    </div>
+                    <div class="show-popup__popup-row">
+                        <span class="show-popup__label">Степень желания:</span>
+                        <button class="show-popup__pill pill">Хочу</button>
+                    </div>
 
-                <!-- Теги и Цена -->
-                <div class="popup-footer">
-                    <select class="popup-tags">
-                        <option>Тэги</option>
-                        <option>#техника</option>
-                        <option>#игра</option>
-                        <option>#хобби</option>
-                    </select>
-                    <div class="popup-price">Цена: ___ руб.</div>
+                    <!-- Описание -->
+                    <p class="show-popup__description popup-description">
+                        бла бла бла ла ла ла ла ла ла ла ла ла ла ла ла ла ла ла ла ла ла
+                    </p>
+
+                    <hr class="show-popup__line">
+
+                    <!-- Теги и Цена -->
+                    <div class="show-popup__footer">
+                        <select class="show-popup__tags">
+                            <option>Тэги</option>
+                            <option>#техника</option>
+                            <option>#игра</option>
+                            <option>#хобби</option>
+                        </select>
+                        <div class="show-popup__price popup-price">Цена: ___ руб.</div>
+                    </div>
                 </div>
             </div>
         </div>
 
 
-        <div class="overlay">
+        <div class="overlay hidden">
 
             <div class="edit-popup" id="editPopup">
                 <div class="edit-popup__container">
@@ -219,7 +219,8 @@
                         <!-- Описание -->
                         <div class="edit-popup__form-group">
                             <label for="description">Описание:</label>
-                            <textarea class="edit-popup__description" id="description" placeholder="Описание..."></textarea>
+                            <textarea class="edit-popup__description" id="description"
+                                      placeholder="Описание..."></textarea>
                         </div>
 
                         <!-- Ссылка на товар -->
@@ -248,10 +249,10 @@
 
                     <!-- Кнопки справа -->
                     <div class="edit-popup__side-buttons">
-                        <button type="button" class="icon-btn close-btn" title="Закрыть" onclick="closePopup()">×
+                        <button type="button" class="icon-btn close-btn" title="Закрыть" onclick="closePopup()">✖
                         </button>
                         <button type="submit" form="editForm" class="icon-btn save-btn" title="Сохранить">💾</button>
-                        <button type="button" class="icon-btn delete-btn" title="Удалить">🗑</button>
+                        <button type="button" class="icon-btn delete-btn" title="Удалить">🗑️</button>
                     </div>
                 </div>
             </div>

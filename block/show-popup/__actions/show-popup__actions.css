@@ -1,0 +1,9 @@
+.show-popup__actions {
+    position: absolute;
+    top: 20px;
+    right: -50px; /* выходят за границу вправо */
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+
+}

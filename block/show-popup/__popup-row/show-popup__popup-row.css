@@ -1,0 +1,5 @@
+.show-popup__popup-row {
+    display: flex;
+    align-items: center;
+    margin: 8px 0;
+}
