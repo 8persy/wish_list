@@ -174,12 +174,12 @@ document.addEventListener('DOMContentLoaded', () => {
         const file = imageInput.files[0];
 
         const maxSize = 5000 * 1024;
-        if (file.size > maxSize) {
-            alert("Изображение слишком большое! Выберите файл меньше 5MB.");
-            return;
-        }
 
         if (file) {
+            if (file.size > maxSize) {
+                alert("Изображение слишком большое! Выберите файл меньше 5MB.");
+                return;
+            }
             const reader = new FileReader();
             reader.onload = function (e) {
                 data.imageUrl = e.target.result; // Сохраняем как Base64 строку
