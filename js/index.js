@@ -156,21 +156,17 @@ document.addEventListener('DOMContentLoaded', () => {
         });
 
         cards.forEach(data => {
+            console.log(data)
             const card = createCard(data);
-            cardContainer.appendChild(card);
+            cardContainer.prepend(card);
         });
     }
 
     editForm.addEventListener('submit', (e) => {
         e.preventDefault();
 
-        const imageUrl = imageInput.files[0]
-            ? URL.createObjectURL(imageInput.files[0])
-            : editingCard?.dataset.image || 'https://via.placeholder.com/150';
-
         const data = {
-            id: editingCard?.dataset.id || Date.now(), // 🔑 Уникальный ID
-            imageUrl,
+            id: editingCard?.dataset.id || Date.now(),
             title: titleInput.value,
             holiday: holidayInput.value,
             level: levelInput.value,
@@ -180,6 +176,28 @@ document.addEventListener('DOMContentLoaded', () => {
             price: priceInput.value
         };
 
+        const file = imageInput.files[0];
+
+        const maxSize = 5000 * 1024;
+        if (file.size > maxSize) {
+            alert("Изображение слишком большое! Выберите файл меньше 5MB.");
+            return;
+        }
+
+        if (file) {
+            const reader = new FileReader();
+            reader.onload = function (e) {
+                data.imageUrl = e.target.result; // Сохраняем как Base64 строку
+                finishEdit(data);
+            };
+            reader.readAsDataURL(file); // Чтение файла как base64
+        } else {
+            data.imageUrl = editingCard?.dataset.image || 'https://via.placeholder.com/150';
+            finishEdit(data);
+        }
+    });
+
+    function finishEdit(data) {
         if (editingCard) {
             const index = cardsData.findIndex(c => c.id == editingCard.dataset.id);
             if (index !== -1) {
@@ -192,7 +210,8 @@ document.addEventListener('DOMContentLoaded', () => {
         saveToLocalStorage();
         renderAllCards(cardsData);
         closePopup();
-    });
+    }
+
 
     closeBtn.addEventListener('click', closePopup);
     overlay.forEach(o => o.addEventListener('click', (e) => {
