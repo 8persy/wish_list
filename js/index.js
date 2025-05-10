@@ -17,9 +17,77 @@ document.addEventListener('DOMContentLoaded', () => {
     const deleteBtn = editPopup.querySelector('.delete-btn');
     const overlay = document.querySelectorAll('.overlay');
     const wishCount = document.querySelector('.sidebar__count');
+    const holidayCheckboxes = document.querySelectorAll('.sidebar__filter:nth-of-type(1) input[type="checkbox"]');
+    const levelCheckboxes = document.querySelectorAll('.sidebar__filter:nth-of-type(2) input[type="checkbox"]');
+    const priceRange = document.getElementById('priceRange');
+    const minPriceInput = document.getElementById('minPrice');
+    const maxPriceInput = document.getElementById('maxPrice');
+    const sidebarCount = document.querySelector('.sidebar__count');
 
     let editingCard = null;
     let cardsData = [];
+
+    const getSelectedValues = (checkboxes) => {
+        console.log(checkboxes)
+        return Array.from(checkboxes)
+            .filter(cb => cb.checked)
+            .map(cb => cb.value);
+    };
+
+    const applyFilters = () => {
+        const selectedHolidays = getSelectedValues(holidayCheckboxes);
+        console.log(selectedHolidays)
+        const selectedLevels = getSelectedValues(levelCheckboxes);
+        console.log(selectedLevels)
+        const minPrice = parseInt(minPriceInput.value) || 0;
+        const maxPrice = parseInt(maxPriceInput.value) || 9999;
+
+        const allCards = document.querySelectorAll('.cards__card');
+        let visibleCount = 0;
+
+        allCards.forEach(card => {
+            const cardHoliday = card.dataset.holiday;
+            const cardLevel = card.dataset.level;
+            const cardPrice = parseInt(card.querySelector('.cards__price-count')?.textContent || "0");
+
+            const matchesHoliday = selectedHolidays.length === 0 || selectedHolidays.includes(cardHoliday);
+            const matchesLevel = selectedLevels.length === 0 || selectedLevels.includes(cardLevel);
+            const matchesPrice = cardPrice >= minPrice && cardPrice <= maxPrice;
+
+            if (matchesHoliday && matchesLevel && matchesPrice) {
+                card.style.display = 'block';
+                visibleCount++;
+            } else {
+                card.style.display = 'none';
+            }
+        });
+
+        const wordForm = (count) => {
+          if (count === 1) return 'желание';
+          if (count >= 2 && count <= 4) return 'желания';
+          return 'желаний';
+        };
+
+        sidebarCount.textContent = `Найдено ${visibleCount} ${wordForm(visibleCount)}`;
+    };
+
+    // Привязка обработчиков
+    [...holidayCheckboxes, ...levelCheckboxes].forEach(cb => cb.addEventListener('change', applyFilters));
+
+    priceRange.addEventListener('input', () => {
+        maxPriceInput.value = priceRange.value;
+        applyFilters();
+    });
+
+    minPriceInput.addEventListener('input', applyFilters);
+
+    maxPriceInput.addEventListener('input', e => {
+        priceRange.value = e.target.value;
+        applyFilters();
+    });
+
+    applyFilters(); // начальная фильтрация при загрузке
+
 
     function getWishWord(count) {
         if (count % 10 === 1 && count % 100 !== 11) {
@@ -97,6 +165,7 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     function createCard(data) {
+        console.log(data)
         const card = cardTemplate.content.cloneNode(true).children[0];
         fillCard(card, data);
 
@@ -131,6 +200,7 @@ document.addEventListener('DOMContentLoaded', () => {
     function saveToLocalStorage() {
         localStorage.setItem('wishCards', JSON.stringify(cardsData));
     }
+
 
     function loadFromLocalStorage() {
         const data = localStorage.getItem('wishCards');

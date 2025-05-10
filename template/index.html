@@ -24,11 +24,11 @@
         <div class="sidebar__filter">
             <h3 class="sidebar__title font__family_inter font__size_l font__color_dark-blue">Праздник</h3>
             <ul class="sidebar__list">
-                <li class="sidebar__list-item font__size_m"><input type="checkbox" id="bday"> <label for="bday">День
+                <li class="sidebar__list-item font__size_m"><input type="checkbox" id="bday" value="День рождения"> <label for="bday">День
                     рождения</label></li>
-                <li class="sidebar__list-item font__size_m"><input type="checkbox" id="ny"> <label for="ny">Новый
+                <li class="sidebar__list-item font__size_m"><input type="checkbox" id="ny" value="Новый год"> <label for="ny">Новый
                     год</label></li>
-                <li class="sidebar__list-item font__size_m"><input type="checkbox" id="march8"> <label for="march8">8
+                <li class="sidebar__list-item font__size_m"><input type="checkbox" id="march8" value="8 марта"> <label for="march8">8
                     марта</label></li>
             </ul>
         </div>
@@ -38,13 +38,13 @@
         <div class="sidebar__filter">
             <h3 class="sidebar__title font__family_inter font__size_l font__color_dark-blue">Степень желания</h3>
             <ul class="sidebar__list">
-                <li class="sidebar__list-item font__size_m"><input type="checkbox" id="very"> <label for="very">Очень
+                <li class="sidebar__list-item font__size_m"><input type="checkbox" id="very" value="Очень сильно хочу"> <label for="very">Очень
                     сильно хочу</label></li>
-                <li class="sidebar__list-item font__size_m"><input type="checkbox" id="strong"> <label for="strong">Сильно
+                <li class="sidebar__list-item font__size_m"><input type="checkbox" id="strong" value="Сильно хочу"> <label for="strong">Сильно
                     хочу</label></li>
-                <li class="sidebar__list-item font__size_m"><input type="checkbox" id="want"> <label
+                <li class="sidebar__list-item font__size_m"><input type="checkbox" id="want" value="Хочу"> <label
                         for="want">Хочу</label></li>
-                <li class="sidebar__list-item font__size_m"><input type="checkbox" id="maybe"> <label for="maybe">Как
+                <li class="sidebar__list-item font__size_m"><input type="checkbox" id="maybe" value="Как вариант"> <label for="maybe">Как
                     вариант</label></li>
             </ul>
         </div>
@@ -88,6 +88,7 @@
   </section>
 </main>
 
+
 <!-- Шаблон карточки -->
 <template id="card-template">
   <div class="cards__card">
@@ -110,9 +111,9 @@
   <!-- SHOW POPUP -->
   <div class="show-popup hidden" id="showPopup">
     <div class="show-popup__actions">
-      <button class="show-popup__icon-btn">✖</button>
+      <button class="show-popup__icon-btn">✖️</button>
       <button class="show-popup__icon-btn">✏️</button>
-      <button class="show-popup__icon-btn">🗑️</button>
+      <button class="show-popup__icon-btn">🗑</button>
     </div>
     <div class="show-popup__popup-content">
       <div class="show-popup__popup-image"></div>
@@ -188,6 +189,7 @@
             </div>
           </div>
           <div class="edit-popup__price-group price-group">
+
             <label for="price">Цена:</label>
             <input type="number" id="price" placeholder="0" min="0" />
             <span>руб.</span>
@@ -195,9 +197,9 @@
         </div>
       </form>
       <div class="edit-popup__side-buttons">
-        <button type="button" class="icon-btn close-btn" title="Закрыть" onclick="closePopup()">✖</button>
+        <button type="button" class="icon-btn close-btn" title="Закрыть" onclick="closePopup()">✖️</button>
         <button type="submit" form="editForm" class="icon-btn save-btn" title="Сохранить">💾</button>
-        <button type="button" class="icon-btn delete-btn" title="Удалить">🗑️</button>
+        <button type="button" class="icon-btn delete-btn" title="Удалить">🗑</button>
       </div>
     </div>
   </div>
