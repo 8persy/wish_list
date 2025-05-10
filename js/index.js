@@ -1,7 +1,7 @@
 document.addEventListener('DOMContentLoaded', () => {
     const cardContainer = document.querySelector('.cards');
     const cardTemplate = document.querySelector('#card-template');
-    const addCardBtn = document.querySelector('.cards__add-button');
+    // const addCardBtn = document.querySelector('.cards__add-button');
     const editPopup = document.querySelector('#editPopup');
     const editForm = document.querySelector('#editForm');
     const imageInput = document.getElementById('imageUpload');
@@ -13,8 +13,8 @@ document.addEventListener('DOMContentLoaded', () => {
     const priceInput = document.getElementById('price');
     const tagCheckboxes = document.querySelectorAll('#tagsDropdown input[type="checkbox"]');
     const closeBtn = editPopup.querySelector('.close-btn');
-    const saveEditBtn = editPopup.querySelector('.save-btn');
-    const deleteBtn = editPopup.querySelector('.delete-btn');
+    // const saveEditBtn = editPopup.querySelector('.save-btn');
+    // const deleteBtn = editPopup.querySelector('.delete-btn');
     const overlay = document.querySelectorAll('.overlay');
     const wishCount = document.querySelector('.sidebar__count');
     const holidayCheckboxes = document.querySelectorAll('.sidebar__filter:nth-of-type(1) input[type="checkbox"]');
@@ -150,6 +150,7 @@ document.addEventListener('DOMContentLoaded', () => {
         editForm.reset();
         document.getElementById('imagePreview').src = 'https://via.placeholder.com/150';
         tagCheckboxes.forEach(cb => cb.checked = false);
+        document.getElementById('tagsDropdown').style.display = 'none';
         editingCard = null;
     }
 
@@ -297,7 +298,6 @@ document.addEventListener('DOMContentLoaded', () => {
     }));
 
 
-
     searchInput.addEventListener('input', () => {
         const query = searchInput.value.trim().toLowerCase();
         const allCards = document.querySelectorAll('.cards__card');
@@ -314,8 +314,6 @@ document.addEventListener('DOMContentLoaded', () => {
 
         sidebarCount.textContent = `Найдено ${visibleCount} ${getWishWord(visibleCount)}`;
     });
-
-
 
     cardsData = loadFromLocalStorage();
     renderAllCards(cardsData);
