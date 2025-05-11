@@ -4,6 +4,7 @@
 @import "__loupe/content__loupe_box.css";
 @import "__search-line/content__search-line.css";
 @import "__search-button/content__search-button.css";
+@import "__search-clear/content__search-clear.css";
 
 .content {
     width: 75%;

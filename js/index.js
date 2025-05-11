@@ -1,7 +1,7 @@
 document.addEventListener('DOMContentLoaded', () => {
     const cardContainer = document.querySelector('.cards');
     const cardTemplate = document.querySelector('#card-template');
-    const addCardBtn = document.querySelector('.cards__add-button');
+    // const addCardBtn = document.querySelector('.cards__add-button');
     const editPopup = document.querySelector('#editPopup');
     const editForm = document.querySelector('#editForm');
     const imageInput = document.getElementById('imageUpload');
@@ -13,13 +13,92 @@ document.addEventListener('DOMContentLoaded', () => {
     const priceInput = document.getElementById('price');
     const tagCheckboxes = document.querySelectorAll('#tagsDropdown input[type="checkbox"]');
     const closeBtn = editPopup.querySelector('.close-btn');
-    const saveEditBtn = editPopup.querySelector('.save-btn');
-    const deleteBtn = editPopup.querySelector('.delete-btn');
+    // const saveEditBtn = editPopup.querySelector('.save-btn');
+    // const deleteBtn = editPopup.querySelector('.delete-btn');
     const overlay = document.querySelectorAll('.overlay');
     const wishCount = document.querySelector('.sidebar__count');
+    const holidayCheckboxes = document.querySelectorAll('.sidebar__filter:nth-of-type(1) input[type="checkbox"]');
+    const levelCheckboxes = document.querySelectorAll('.sidebar__filter:nth-of-type(2) input[type="checkbox"]');
+    const priceRange = document.getElementById('priceRange');
+    const minPriceInput = document.getElementById('minPrice');
+    const maxPriceInput = document.getElementById('maxPrice');
+    const sidebarCount = document.querySelector('.sidebar__count');
+    const searchInput = document.getElementById('searchInput');
+    const clearSearchBtn = document.getElementById('clearSearch');
 
     let editingCard = null;
     let cardsData = [];
+
+    const getSelectedValues = (checkboxes) => {
+        console.log(checkboxes)
+        return Array.from(checkboxes)
+            .filter(cb => cb.checked)
+            .map(cb => cb.value);
+    };
+
+    // Фильтр + поиск
+    const applyFilters = () => {
+        const selectedHolidays = getSelectedValues(holidayCheckboxes);
+        const selectedLevels = getSelectedValues(levelCheckboxes);
+        const minPrice = parseInt(minPriceInput.value) || 0;
+        const maxPrice = parseInt(maxPriceInput.value) || 9999;
+        const searchQuery = searchInput.value.trim().toLowerCase();
+
+        const allCards = document.querySelectorAll('.cards__card');
+        let visibleCount = 0;
+
+        allCards.forEach(card => {
+            const cardHoliday = card.dataset.holiday;
+            const cardLevel = card.dataset.level;
+            const cardPrice = parseInt(card.querySelector('.cards__price-count')?.textContent || "0");
+            const cardTitle = card.querySelector('.cards__title')?.textContent.toLowerCase() || '';
+
+            const matchesHoliday = selectedHolidays.length === 0 || selectedHolidays.includes(cardHoliday);
+            const matchesLevel = selectedLevels.length === 0 || selectedLevels.includes(cardLevel);
+            const matchesPrice = cardPrice >= minPrice && cardPrice <= maxPrice;
+            const matchesSearch = cardTitle.includes(searchQuery);
+
+            if (matchesHoliday && matchesLevel && matchesPrice && matchesSearch) {
+                card.style.display = 'block';
+                visibleCount++;
+            } else {
+                card.style.display = 'none';
+            }
+        });
+        sidebarCount.textContent = `Найдено ${visibleCount} ${getWishWord(visibleCount)}`;
+    };
+
+
+    // Показывать/скрывать крестик
+    searchInput.addEventListener('input', () => {
+        clearSearchBtn.style.display = searchInput.value ? 'block' : 'none';
+        applyFilters();
+    });
+
+    // Очистка по нажатию
+    clearSearchBtn.addEventListener('click', () => {
+        searchInput.value = '';
+        clearSearchBtn.style.display = 'none';
+        applyFilters();
+    });
+
+    // Привязка обработчиков
+    [...holidayCheckboxes, ...levelCheckboxes].forEach(cb => cb.addEventListener('change', applyFilters));
+
+    priceRange.addEventListener('input', () => {
+        maxPriceInput.value = priceRange.value;
+        applyFilters();
+    });
+
+    minPriceInput.addEventListener('input', applyFilters);
+
+    maxPriceInput.addEventListener('input', e => {
+        priceRange.value = e.target.value;
+        applyFilters();
+    });
+
+    applyFilters(); // начальная фильтрация при загрузке
+
 
     function getWishWord(count) {
         if (count % 10 === 1 && count % 100 !== 11) {
@@ -71,6 +150,7 @@ document.addEventListener('DOMContentLoaded', () => {
         editForm.reset();
         document.getElementById('imagePreview').src = 'https://via.placeholder.com/150';
         tagCheckboxes.forEach(cb => cb.checked = false);
+        document.getElementById('tagsDropdown').style.display = 'none';
         editingCard = null;
     }
 
@@ -97,6 +177,7 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     function createCard(data) {
+        console.log(data)
         const card = cardTemplate.content.cloneNode(true).children[0];
         fillCard(card, data);
 
@@ -131,6 +212,7 @@ document.addEventListener('DOMContentLoaded', () => {
     function saveToLocalStorage() {
         localStorage.setItem('wishCards', JSON.stringify(cardsData));
     }
+
 
     function loadFromLocalStorage() {
         const data = localStorage.getItem('wishCards');
@@ -214,6 +296,24 @@ document.addEventListener('DOMContentLoaded', () => {
             closePopup();
         }
     }));
+
+
+    searchInput.addEventListener('input', () => {
+        const query = searchInput.value.trim().toLowerCase();
+        const allCards = document.querySelectorAll('.cards__card');
+        let visibleCount = 0;
+
+        allCards.forEach(card => {
+            const title = card.querySelector('.cards__title')?.textContent.toLowerCase() || '';
+            const isMatch = title.includes(query);
+
+            card.style.display = isMatch ? 'block' : 'none';
+
+            if (isMatch) visibleCount++;
+        });
+
+        sidebarCount.textContent = `Найдено ${visibleCount} ${getWishWord(visibleCount)}`;
+    });
 
     cardsData = loadFromLocalStorage();
     renderAllCards(cardsData);
