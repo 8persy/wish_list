@@ -1,0 +1,11 @@
+.content__search-clear {
+    position: absolute;
+    right: 1rem;
+    top: 46%;
+    transform: translateY(-50%);
+    background: transparent;
+    border: none;
+    font-size: 24px;
+    cursor: pointer;
+    display: none;
+}

@@ -1,248 +1,219 @@
 <!DOCTYPE html>
 <html lang="ru">
+
 <head>
     <meta charset="UTF-8"/>
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
     <title>myWish — Вишлист</title>
     <link rel="stylesheet" href="../block/index.css">
 </head>
+
 <body class="page">
+    <!-- Логотип -->
+    <header class="header">
+        <h1 class="font__size_xl font__family_pacifico header__title font__color_blue">myWish</h1>
+    </header>
 
-<!-- Логотип -->
-<header class="header">
-    <h1 class="font__size_xl font__family_pacifico header__title font__color_blue">myWish</h1>
-</header>
+    <main class="main">
+        <!-- Левая панель: Фильтры -->
+        <aside class="sidebar">
+            <p class="sidebar__count font__size_l">Найдено 7 желаний</p>
 
-<main class="main">
+            <hr class="sidebar__line">
 
-    <!-- Левая панель: Фильтры -->
-    <aside class="sidebar">
-        <p class="sidebar__count font__size_l">Найдено 7 желаний</p>
-
-        <hr class="sidebar__line">
-
-        <div class="sidebar__filter">
-            <h3 class="sidebar__title font__family_inter font__size_l font__color_dark-blue">Праздник</h3>
-            <ul class="sidebar__list">
-                <li class="sidebar__list-item font__size_m"><input type="checkbox" id="bday"> <label for="bday">День
-                    рождения</label></li>
-                <li class="sidebar__list-item font__size_m"><input type="checkbox" id="ny"> <label for="ny">Новый
-                    год</label></li>
-                <li class="sidebar__list-item font__size_m"><input type="checkbox" id="march8"> <label for="march8">8
-                    марта</label></li>
-            </ul>
-        </div>
-
-        <hr class="sidebar__line">
-
-        <div class="sidebar__filter">
-            <h3 class="sidebar__title font__family_inter font__size_l font__color_dark-blue">Степень желания</h3>
-            <ul class="sidebar__list">
-                <li class="sidebar__list-item font__size_m"><input type="checkbox" id="very"> <label for="very">Очень
-                    сильно хочу</label></li>
-                <li class="sidebar__list-item font__size_m"><input type="checkbox" id="strong"> <label for="strong">Сильно
-                    хочу</label></li>
-                <li class="sidebar__list-item font__size_m"><input type="checkbox" id="want"> <label
-                        for="want">Хочу</label></li>
-                <li class="sidebar__list-item font__size_m"><input type="checkbox" id="maybe"> <label for="maybe">Как
-                    вариант</label></li>
-            </ul>
-        </div>
-
-        <hr class="sidebar__line">
-
-        <div class="sidebar__filter">
-            <h3 class="sidebar__title font__family_inter font__size_l font__color_dark-blue">Цена, руб.</h3>
-            <input type="range" min="0" max="9999" class="sidebar__range">
-            <div class="sidebar__number-box">
-                <input type="number" value="0" class="sidebar__number">
-                <input type="number" value="9999" class="sidebar__number">
-            </div>
-        </div>
-    </aside>
-
-
-    <!-- Контент -->
-    <section class="content">
-
-        <!-- Поиск -->
-        <div class="content__search">
-            <div class="content__search-box">
-                <input type="text" class="content__search-line">
-                <span class="content__loupe_box">
-                    <img src="../images/loupe.svg" alt="loupe" class="content__loupe_img">
-                </span>
-            </div>
-            <button class="content__search-button font__size_l font__family_inter">Найти</button>
-        </div>
-
-        <!-- Сетка карточек -->
-        <div class="cards">
-
-            <!-- Карточка добавления -->
-            <div class="cards__add-button">
-                <span>+</span>
+            <div class="sidebar__filter">
+                <h3 class="sidebar__title font__family_inter font__size_l font__color_dark-blue">Праздник</h3>
+                <ul class="sidebar__list">
+                    <li class="sidebar__list-item font__size_m"><input type="checkbox" id="bday" value="День рождения">
+                        <label for="bday">День
+                            рождения</label></li>
+                    <li class="sidebar__list-item font__size_m"><input type="checkbox" id="ny" value="Новый год"> <label
+                            for="ny">Новый
+                        год</label></li>
+                    <li class="sidebar__list-item font__size_m"><input type="checkbox" id="march8" value="8 марта"> <label
+                            for="march8">8
+                        марта</label></li>
+                </ul>
             </div>
 
-            <div class="overlay hidden">
-                <div class="show-popup">
-                    <div class="show-popup__actions">
-                        <button class="show-popup__icon-btn">✖</button>
-                        <button class="show-popup__icon-btn">✏️</button>
-                        <button class="show-popup__icon-btn">🗑️</button>
+            <hr class="sidebar__line">
+
+            <div class="sidebar__filter">
+                <h3 class="sidebar__title font__family_inter font__size_l font__color_dark-blue">Степень желания</h3>
+                <ul class="sidebar__list">
+                    <li class="sidebar__list-item font__size_m"><input type="checkbox" id="very" value="Очень сильно хочу">
+                        <label for="very">Очень
+                            сильно хочу</label></li>
+                    <li class="sidebar__list-item font__size_m"><input type="checkbox" id="strong" value="Сильно хочу">
+                        <label for="strong">Сильно
+                            хочу</label></li>
+                    <li class="sidebar__list-item font__size_m"><input type="checkbox" id="want" value="Хочу"> <label
+                            for="want">Хочу</label></li>
+                    <li class="sidebar__list-item font__size_m"><input type="checkbox" id="maybe" value="Как вариант">
+                        <label for="maybe">Как
+                            вариант</label></li>
+                </ul>
+            </div>
+
+            <hr class="sidebar__line">
+
+            <div class="sidebar__filter">
+                <h3 class="sidebar__title font__family_inter font__size_l font__color_dark-blue">Цена, руб.</h3>
+                <input type="range" id="priceRange" min="0" max="9999" value="9999" class="sidebar__range"/>
+                <div class="sidebar__number-box">
+                    <input type="number" id="minPrice" value="0" class="sidebar__number"/>
+                    <input type="number" id="maxPrice" value="9999" class="sidebar__number"/>
+                </div>
+            </div>
+        </aside>
+
+
+        <!-- Контент -->
+        <section class="content">
+
+            <!-- Поиск -->
+            <div class="content__search">
+                <div class="content__search-box">
+                    <input type="text" id="searchInput" class="content__search-line" placeholder="Поиск по названию..."/>
+                    <button id="clearSearch" class="content__search-clear">×</button>
+                    <span class="content__loupe_box">
+              <img src="../images/loupe.svg" alt="loupe" class="content__loupe_img"/>
+            </span>
+                </div>
+                <button class="content__search-button font__size_l font__family_inter" id="searchButton">Найти</button>
+            </div>
+
+            <!-- Сетка карточек -->
+            <div class="cards">
+                <!-- Карточка добавления -->
+                <div class="cards__add-button">
+                    <span>+</span>
+                </div>
+                <!-- Карточки будут добавляться скриптом -->
+            </div>
+
+        </section>
+    </main>
+
+
+    <!-- Шаблон карточки -->
+    <template id="card-template">
+        <div class="cards__card">
+            <img src="" alt="img" class="cards__img"/>
+            <span class="cards__bin-box">
+          <img src="../images/bin.svg" alt="bin" class="cards__bin-img"/>
+        </span>
+            <div class="cards__title font__size_l"></div>
+            <div class="cards__price font__size_l">
+                <p class="cards__price-count"></p>
+                <p class="cards__price-currency"> — РУБ.</p>
+            </div>
+            <div class="cards__tags font__size_s"></div>
+        </div>
+    </template>
+
+    <!-- Оверлей с попапами -->
+    <div class="overlay hidden" id="overlay">
+
+        <!-- SHOW POPUP -->
+        <div class="show-popup hidden" id="showPopup">
+            <div class="show-popup__actions">
+                <button class="show-popup__icon-btn">✖️</button>
+                <button class="show-popup__icon-btn">✏️</button>
+                <button class="show-popup__icon-btn">🗑</button>
+            </div>
+            <div class="show-popup__popup-content">
+                <div class="show-popup__popup-image"></div>
+                <h2 class="show-popup__popup-title"></h2>
+                <div class="show-popup__popup-row">
+                    <span class="show-popup__label">Праздник:</span>
+                    <button class="show-popup__pill"></button>
+                </div>
+                <div class="show-popup__popup-row">
+                    <span class="show-popup__label">Степень желания:</span>
+                    <button class="show-popup__pill pill"></button>
+                </div>
+                <p class="show-popup__description"></p>
+                <p class="show-popup__link"></p>
+                <div class="show-popup__footer">
+                    <select class="show-popup__tags">
+                        <option>Тэги</option>
+                    </select>
+                    <div class="cards__price">
+                        <p class="cards__price-count"></p>
+                        <p class="cards__price-currency"> — РУБ.</p>
                     </div>
-                    <div class="show-popup__popup-content">
-                        <!-- Картинка -->
-                        <div class="show-popup__popup-image"></div>
+                </div>
+            </div>
+        </div>
 
-                        <!-- Название -->
-                        <h2 class="show-popup__popup-title"></h2>
-
-                        <!-- Праздник и Степень желания -->
-                        <div class="show-popup__popup-row">
-                            <span class="show-popup__label">Праздник:</span>
-                            <button class="show-popup__pill"></button>
-                        </div>
-                        <div class="show-popup__popup-row">
-                            <span class="show-popup__label">Степень желания:</span>
-                            <button class="show-popup__pill pill"></button>
-                        </div>
-
-                        <!-- Описание -->
-                        <p class="show-popup__description">
-
-                        </p>
-
-                        <p class="show-popup__link">
-
-                        </p>
-
-                        <!-- Теги и Цена -->
-                        <div class="show-popup__footer">
-                            <select class="show-popup__tags">
-                                <option>Тэги</option>
-
-                                <!-- make tags like that
-                                <option>#техника</option>
-                                <option>#игра</option>
-                                <option>#хобби</option> -->
-
+        <!-- EDIT POPUP -->
+        <div class="edit-popup hidden" id="editPopup">
+            <div class="edit-popup__container">
+                <form class="edit-popup__modal" id="editForm">
+                    <div class="edit-popup__image-upload">
+                        <label for="imageUpload">
+                            <img id="imagePreview" src="https://via.placeholder.com/150" alt="Загрузить изображение"/>
+                        </label>
+                        <input type="file" id="imageUpload" accept="image/*" style="display: none;"/>
+                    </div>
+                    <input type="text" id="wishTitle" class="edit-popup__title-input" placeholder="Название"/>
+                    <div class="edit-popup__form-group">
+                        <label for="holiday">Праздник:</label>
+                        <div class="edit-popup__select-container select-container">
+                            <select id="holiday">
+                                <option>День рождения</option>
+                                <option>Новый год</option>
+                                <option selected>8 марта</option>
                             </select>
-                            <div class="cards__price">
-                                <p class="cards__price-count"></p>
-                                <p class="cards__price-currency"> — РУБ.</p>
-                            </div>
                         </div>
                     </div>
-                </div>
-            </div>
-
-
-            <div class="overlay hidden">
-
-                <div class="edit-popup" id="editPopup">
-                    <div class="edit-popup__container">
-                        <form class="edit-popup__modal" id="editForm">
-                            <!-- Загрузка изображения -->
-                            <div class="edit-popup__image-upload">
-                                <label for="imageUpload">
-                                    <img id="imagePreview" src="https://via.placeholder.com/150"
-                                         alt="Загрузить изображение">
-                                </label>
-                                <input type="file" id="imageUpload" accept="image/*" style="display: none;">
-                            </div>
-
-                            <!-- Название -->
-                            <input type="text" id="wishTitle" class="edit-popup__title-input" placeholder="Название">
-
-                            <!-- Праздник -->
-                            <div class="edit-popup__form-group">
-                                <label for="holiday">Праздник:</label>
-                                <div class="edit-popup__select-container select-container">
-                                    <select id="holiday">
-                                        <option>День рождения</option>
-                                        <option>Новый год</option>
-                                        <option selected>8 марта</option>
-                                    </select>
-                                </div>
-                            </div>
-
-                            <!-- Степень желания -->
-                            <div class="edit-popup__form-group">
-                                <label for="wishlevel">Степень желания:</label>
-                                <div class="edit-popup__select-container">
-                                    <select id="wishlevel">
-                                        <option>Очень сильно хочу</option>
-                                        <option>Сильно хочу</option>
-                                        <option selected>Хочу</option>
-                                        <option>Как вариант</option>
-                                    </select>
-                                </div>
-                            </div>
-
-                            <!-- Описание -->
-                            <div class="edit-popup__form-group">
-                                <label for="description">Описание:</label>
-                                <textarea class="edit-popup__description" id="description"
-                                          placeholder="Описание..."></textarea>
-                            </div>
-
-                            <!-- Ссылка на товар -->
-                            <input type="url" id="wishLink" placeholder="Ссылка на товар"
-                                   class="edit-popup__link-input">
-
-
-                            <!-- Теги и цена -->
-                            <div class="edit-popup__form-row">
-                                <div class="edit-popup__tags-container tags-container">
-                                    <button type="button" id="tagsBtn">
-                                        Теги <span class="arrow">▸</span>
-                                    </button>
-                                    <div id="tagsDropdown" class="tags-dropdown-content">
-                                        <label><input type="checkbox" value="tag1"> Подарок</label>
-                                        <label><input type="checkbox" value="tag2"> Семья</label>
-                                        <label><input type="checkbox" value="tag3"> Хобби</label>
-                                    </div>
-                                </div>
-                                <div class="edit-popup__price-group price-group">
-                                    <label for="price">Цена:</label>
-                                    <input type="number" id="price" placeholder="0" min="0">
-                                    <span>руб.</span>
-                                </div>
-                            </div>
-                        </form>
-
-                        <!-- Кнопки справа -->
-                        <div class="edit-popup__side-buttons">
-                            <button type="button" class="icon-btn close-btn" title="Закрыть" onclick="closePopup()">✖
+                    <div class="edit-popup__form-group">
+                        <label for="wishlevel">Степень желания:</label>
+                        <div class="edit-popup__select-container">
+                            <select id="wishlevel">
+                                <option>Очень сильно хочу</option>
+                                <option>Сильно хочу</option>
+                                <option selected>Хочу</option>
+                                <option>Как вариант</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="edit-popup__form-group">
+                        <label for="description">Описание:</label>
+                        <textarea class="edit-popup__description" id="description" placeholder="Описание..."></textarea>
+                    </div>
+                    <input type="url" id="wishLink" placeholder="Ссылка на товар" class="edit-popup__link-input"/>
+                    <div class="edit-popup__form-row">
+                        <div class="edit-popup__tags-container tags-container">
+                            <button type="button" id="tagsBtn">
+                                Теги <span class="arrow">▸</span>
                             </button>
-                            <button type="submit" form="editForm" class="icon-btn save-btn" title="Сохранить">💾</button>
-                            <button type="button" class="icon-btn delete-btn" title="Удалить">🗑️</button>
+                            <div id="tagsDropdown" class="tags-dropdown-content">
+                                <label><input type="checkbox" value="tag1"/> Подарок</label>
+                                <label><input type="checkbox" value="tag2"/> Семья</label>
+                                <label><input type="checkbox" value="tag3"/> Хобби</label>
+                            </div>
+                        </div>
+                        <div class="edit-popup__price-group price-group">
+
+                            <label for="price">Цена:</label>
+                            <input type="number" id="price" placeholder="0" min="0"/>
+                            <span>руб.</span>
                         </div>
                     </div>
+                </form>
+                <div class="edit-popup__side-buttons">
+                    <button type="button" class="icon-btn close-btn" title="Закрыть" onclick="closePopup()">✖️</button>
+                    <button type="submit" form="editForm" class="icon-btn save-btn" title="Сохранить">💾</button>
+                    <button type="button" class="icon-btn delete-btn" title="Удалить">🗑</button>
                 </div>
             </div>
         </div>
 
-    </section>
-
-</main>
-<template id="card-template">
-    <div class="cards__card">
-        <img src="" alt="img" class="cards__img">
-        <span class="cards__bin-box">
-                    <img src="../images/bin.svg" alt="bin" class="cards__bin-img">
-                </span>
-        <div class="cards__title font__size_l"></div>
-        <div class="cards__price font__size_l">
-            <p class="cards__price-count"></p>
-            <p class="cards__price-currency"> — РУБ.</p>
-        </div>
-        <div class="cards__tags font__size_s"></div>
     </div>
-</template>
 
-<script src="../js/index.js"></script>
+    <script src="../js/index.js"></script>
 
 </body>
 </html>
