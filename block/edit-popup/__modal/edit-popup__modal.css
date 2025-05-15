@@ -12,6 +12,6 @@
 @media (max-device-width: 700px){
     .edit-popup__modal {
         width: 80vw;
-        height: 100%;
+        height: 95%;
     }
 }
