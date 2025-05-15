@@ -8,6 +8,7 @@
     cursor: pointer;
     display: flex;
     grid-area: add;
+    order: -1;
 }
 
 .cards__add-button:hover {
